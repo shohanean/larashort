@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('generated')->unique();
             $table->timestamp('valid_till');
             $table->boolean('used')->default(0);
+            $table->integer('noc')->default(0)->comment('no of clicks');
             $table->timestamps();
         });
     }

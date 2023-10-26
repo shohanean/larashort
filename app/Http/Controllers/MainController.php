@@ -31,6 +31,8 @@ class MainController extends Controller
     }
     public function redirect($generated_link)
     {
-        return redirect(Link::where('generated', $generated_link)->first()->orignal);
+        $link = Link::where('generated', $generated_link)->first();
+        $link->increment('noc');
+        return redirect($link->orignal);
     }
 }
